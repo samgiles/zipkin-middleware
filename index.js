@@ -49,6 +49,9 @@ ZipkinMiddleware.prototype.install = function() {
 			trace.record(tryfer.trace.Annotation.string(key, value));
 		};
 
+		// Add some basic annotations for HTTP requests:
+		request.addTraceAnnotation('http.url', request.originalUrl);
+
 		// Shim the response end method so we can immediately record the
 		// serverSend event.
 		var originalResponseEnd = response.end;
