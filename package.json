@@ -1,0 +1,21 @@
+{
+  "name": "zipkin-middleware",
+  "version": "1.0.0",
+  "description": "Simple Zipkin tracer Middleware for Express applications using node-tryfer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "zipkin",
+    "express"
+  ],
+  "author": "Samuel Giles",
+  "license": "MIT",
+  "dependencies": {
+    "denodeify": "^1.2.0",
+    "es6-promise": "^2.0.1",
+    "scribe": "0.0.9",
+    "tryfer": "^0.2.8"
+  }
+}
