@@ -46,7 +46,7 @@ ZipkinMiddleware.prototype.install = function() {
 		// Add function the the request object to add annotations to the
 		// trace
 		request.addTraceAnnotation = function(key, value) {
-			tryfer.trace.Annotation.string(key, value);
+			trace.record(tryfer.trace.Annotation.string(key, value));
 		};
 
 		// Shim the response end method so we can immediately record the
