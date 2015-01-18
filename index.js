@@ -8,6 +8,7 @@ function ZipkinMiddleware(options) {
 	this.scribeCategory = options.scribeCategory || 'zipkin';
 	this.scribeClient = new Scribe(this.scribeHost, this.scribePort, { autoReconnect: true });
 	this.zipkinTracer = false;
+	this.tryfer = tryfer;
 }
 
 ZipkinMiddleware.prototype.initialize = function(ready) {
