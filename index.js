@@ -60,3 +60,4 @@ ZipkinMiddleware.prototype.install = function() {
 		next();
 	}.bind(this);
 };
+module.exports = ZipkinMiddleware;
