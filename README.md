@@ -6,11 +6,12 @@
 The zipkin-middleware object can be created with an options object that
 accepts the following options:
 
-| Key              | Description                                           | Default       |
-|------------------|-------------------------------------------------------|---------------|
-| 'scribeHost'     | The host the scribe daemon is running on              | `'localhost'` |
-| 'scribePort'     | The port the scribe daemon is listening on            | `1463`        |
-| 'scribeCategory' | The name of the category to send the Zipkin traces to | `'zipkin'`    |
+| Key              | Description                                             | Default                 |
+|------------------|---------------------------------------------------------|-------------------------|
+| 'scribeHost'     | The host the scribe daemon is running on                | `'localhost'`           |
+| 'scribePort'     | The port the scribe daemon is listening on              | `1463`                  |
+| 'scribeCategory' | The name of the category to send the Zipkin traces to   | `'zipkin'`              |
+| 'serviceName'    | The name of the service to identify it in Zipkin traces | `'default-express-app'` |
 
 For example:
 
@@ -18,7 +19,8 @@ For example:
 var zipkinMiddleware = new ZipkinMiddleware({
 	scribeHost: '10.0.0.3',
 	scribePort: 1234,
-	scribeCategory: 'my-custom-category'
+	scribeCategory: 'my-custom-category',
+	serviceName: "my-service"
 });
 ```
 
@@ -53,7 +55,9 @@ var app = express();
 var ZipkinMiddleware = require('zipkin-middleware');
 
 // Create a new Middleware object
-var zipkinMiddleware = new ZipkinMiddleware();
+var zipkinMiddleware = new ZipkinMiddleware({
+	serviceName: "my-service"
+});
 
 // Install the middleware
 app.use(zipkinMiddleware.install());

@@ -2,10 +2,11 @@ var tryfer = require('tryfer');
 var Scribe = require('scribe').Scribe;
 
 function ZipkinMiddleware(options) {
+	this.serviceName = options.serviceName || 'default-express-app';
 	this.scribeHost = options.scribeHost || "localhost";
 	this.scribePort = options.scribePort || 1463;
 	this.scribeCategory = options.scribeCategory || 'zipkin';
-	this.scribeClient = new Scribe(scribeHost, scribePort, { autoReconnect: true });
+	this.scribeClient = new Scribe(this.scribeHost, this.scribePort, { autoReconnect: true });
 	this.zipkinTracer = false;
 }
 
