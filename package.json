@@ -13,8 +13,6 @@
   "author": "Samuel Giles",
   "license": "MIT",
   "dependencies": {
-    "denodeify": "^1.2.0",
-    "es6-promise": "^2.0.1",
     "scribe": "0.0.9",
     "tryfer": "^0.2.8"
   }
